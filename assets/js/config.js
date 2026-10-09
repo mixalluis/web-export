@@ -1,5 +1,10 @@
 // Company and Export Configuration
+// NOTE: every value below is managed through the admin data app (admin/) and
+// written back by tools/apply_site_data.py - edit them there, not here.
 const APP_CONFIG = {
+  site: {
+    domain: "https://nusantaracommodities.com",
+  },
   companyName: "PT Anurika Nusantara Agro",
   tradingName: "Anurika Nusantara Agro",
   establishmentYear: 2018,
@@ -13,6 +18,7 @@ const APP_CONFIG = {
     phone: "+62 812-3456-7890",
     phoneDisplay: "+62 812 3456 7890",
     whatsappNumber: "6281234567890",
+    whatsappDisplay: "+62 812 3456 7890",
     email: "export@anurikanusantara.com",
     addressHeadOffice: "Wisma Export Nusantara Lt. 4, Jl. Raya Darmo No. 88, Surabaya 60265, Indonesia",
     addressWarehouse: "Kawasan Industri Safe 'n' Lock Blok C-12, Lingkar Timur, Sidoarjo 61252, Indonesia",

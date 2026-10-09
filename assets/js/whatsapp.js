@@ -5,19 +5,17 @@ function initWhatsApp() {
   if (!waBtn) return;
 
   waBtn.addEventListener('click', () => {
-    const activeLang = localStorage.getItem('nusantara_lang') || 'en';
     const productMeta = document.querySelector('[data-product-name]');
     const productName = productMeta ? productMeta.getAttribute('data-product-name') : null;
 
-    let text = "";
-    if (productName) {
-      text = activeLang === 'en'
-        ? `Hello Nusantara Agro Export Desk, I am interested in importing ${productName}. Could you provide the latest FOB/CIF specification and price quotation?`
-        : `Halo Tim Ekspor Nusantara, saya tertarik dengan ${productName}. Mohon informasi spesifikasi teknis dan penawaran harga FOB/CIF terbaru.`;
+    // Prefilled chat message follows the active language (keys: wa.msgProduct / wa.msgGeneral)
+    let text;
+    if (typeof t === 'function') {
+      text = productName ? t('wa.msgProduct', { product: productName }) : t('wa.msgGeneral');
     } else {
-      text = activeLang === 'en'
-        ? `Hello Nusantara Agro Export Desk, I am interested in sourcing commodities from Indonesia. Could you provide your latest quotation?`
-        : `Halo Tim Ekspor Nusantara, saya tertarik dengan pasokan komoditas dari Indonesia. Mohon informasi penawaran harga terbaru.`;
+      text = productName
+        ? `Hello, I am interested in importing ${productName}. Could you provide the latest FOB/CIF specification and price quotation?`
+        : `Hello, I am interested in sourcing commodities from Indonesia. Could you provide your latest quotation?`;
     }
 
     const waNum = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.contact.whatsappNumber) || "6281234567890";

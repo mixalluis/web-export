@@ -1,5 +1,5 @@
 # Panduan Developer: Website Profil Usaha & Katalog Produk Ekspor (UMK)
-**Versi 2.2 | Oktober 2026**  
+**Versi 2.3 | Oktober 2026**  
 *Dokumentasi Resmi Arsitektur & Operasional Web Ekspor PT Anurika Nusantara Agro*
 
 ---
@@ -42,6 +42,8 @@ Tujuan utamanya:
   - Bahasa Inggris sebagai bahasa utama untuk pasar internasional.
   - Saat mode Bahasa Indonesia diaktifkan, **seluruh halaman detail spesifikasi produk otomatis ikut berganti ke Bahasa Indonesia** (mulai dari deskripsi, ringkasan kapasitas, 4 blok spesifikasi teknis, tabel parameter grade, hingga tombol cetak lembar spek PDF).
   - Tautan internal otomatis mempertahankan status bahasa (`?lang=id`).
+- **Panel Admin Data (Pengganti Data Contoh)**: folder `/admin/` berisi aplikasi editor data murni client-side (tanpa server/database) untuk mengisi nama perusahaan, kontak, legalitas, nomor sertifikat, dan seluruh teks EN/ID. Perubahan tersimpan di `localStorage`, diunduh sebagai `admin/data/site-data.json`, lalu ditulis ke berkas situs dengan `python3 tools/apply_site_data.py`.
+- **Token Data Terpusat (`{nib}`, `{legal_name}`, ...)**: Nomor legalitas, email, dan nomor WhatsApp tidak lagi diketik ulang di setiap kalimat — kamus i18n memakai token yang diisi otomatis dari `APP_CONFIG` oleh `formatText()`, sehingga satu perubahan data langsung sinkron ke seluruh halaman berbahasa Inggris maupun Indonesia.
 - **Beranda Rapi & Realistis untuk UMK Baru**:
   - Tidak dipenuhi sertifikat berlebihan yang tidak relevan bagi UMK baru.
   - Fokus pada 4 komoditas unggulan Indonesia: Biji Vanili Planifolia, Briket Arang Tempurung Kelapa, Biji Kopi Mentah Spesialti, dan Cengkeh Kering Utuh Lalpari.
@@ -121,6 +123,15 @@ export-website/
 │   └── index.html             # Halaman Formulir RFQ & Kontak Meja Ekspor (/contact/)
 ├── privacy/
 │   └── index.html             # Halaman Kebijakan Privasi Data Inkuiri (/privacy/)
+├── admin/
+│   ├── index.html             # Panel data admin (noindex, UI Bahasa Indonesia, tanpa server)
+│   ├── assets/
+│   │   ├── admin.css          # Gaya visual panel admin
+│   │   └── admin.js           # Editor data situs (localStorage, murni client-side)
+│   └── data/
+│       └── site-data.json     # Data situs terstruktur (sumber admin & hasil --extract)
+├── tools/
+│   └── apply_site_data.py     # Tulis site-data.json ke berkas situs, atau ekstrak kembali
 └── assets/
     ├── css/
     │   └── custom.css         # CSS responsive navbar, animasi scroll reveal & print layout
@@ -180,18 +191,53 @@ Kamus di `/assets/js/i18n.js` mencakup seluruh atribut teknis keempat produk:
 
 ---
 
-## 9. Menyesuaikan Data Usaha
+## 9. Menyesuaikan Data Usaha (Panel Admin + Skrip Penerap)
 
-Untuk menyesuaikan data usaha seperti nama perusahaan, nomor WhatsApp, email, dan nomor legalitas NIB, cukup ubah nilai di `/assets/js/config.js`:
-```javascript
-const APP_CONFIG = {
-  companyName: "PT Anurika Nusantara Agro",
-  tradingName: "Anurika Nusantara Agro",
-  whatsappNumber: "6281234567890",
-  emailAddress: "export@nusantaracommodities.com",
-  nibNumber: "1289000438192",
-  // ...
-};
-```
+Semua data usaha (nama perusahaan, NIB/NPWP, nomor WhatsApp, email, alamat, sertifikat, dan **seluruh teks dwibahasa EN/ID**) kini dikelola dari satu tempat:
+
+1. **Panel Admin** — buka `/admin/` lewat server statis:
+   ```bash
+   python3 -m http.server 8000
+   # lalu buka http://localhost:8000/admin/
+   ```
+   Panel ini 100% berjalan di browser (tanpa backend/database). Perubahan tersimpan otomatis di `localStorage`
+   (`anurika_admin_site_data_v1`) dan bisa diunduh menjadi `admin/data/site-data.json`.
+   Panel ini bersifat internal (`noindex, nofollow` + `Disallow: /admin/` pada `robots.txt`) dan memakai Bahasa Indonesia saja — halaman publik tetap dwibahasa.
+   Tab panel: **1** Perusahaan & Kontak · **2** Legalitas & Sertifikat · **3** Komoditas · **4** Teks Semua Halaman · **5** Terapkan ke Situs.
+
+2. **Skrip Penerap** — `tools/apply_site_data.py` menulis berkas data ke berkas situs:
+   ```bash
+   python3 tools/apply_site_data.py --dry-run   # pratinjau diff, tidak menulis apa pun
+   python3 tools/apply_site_data.py             # terapkan admin/data/site-data.json
+   python3 tools/apply_site_data.py --extract   # baca situs, tulis ulang admin/data/site-data.json
+   ```
+   Yang diperbarui: `assets/js/config.js` (site/legal/contact/antiFraudNotice), `assets/js/i18n.js`
+   (`DICTIONARY.en` & `DICTIONARY.id`), `assets/js/main.js` (`CERT_REG_NOS`), `sitemap.xml` (URL + `lastmod`),
+   `robots.txt`, dan elemen bertanda `data-site-field` di `index.html`, `contact/index.html`, `about/index.html`.
+   Skrip bersifat idempoten: menjalankannya dua kali dengan data yang sama tidak mengubah apa pun.
+
+3. **Struktur `assets/js/config.js`** (jangan diedit manual, gunakan panel admin):
+   ```javascript
+   const APP_CONFIG = {
+     site: { domain: "https://nusantaracommodities.com" },
+     companyName: "PT Anurika Nusantara Agro",
+     tradingName: "Anurika Nusantara Agro",
+     establishmentYear: 2018,
+     legal: { nib, npwp, exportLicense, kbli },
+     contact: { phone, phoneDisplay, whatsappNumber, whatsappDisplay, email,
+                addressHeadOffice, addressWarehouse, operatingHours },
+     antiFraudNotice: { en, id }
+   };
+   ```
+
+4. **Token data pada teks terjemahan** — alih-alih mengetik ulang nomor legalitas di tiap kalimat, kamus i18n
+   memakai token yang diisi otomatis oleh `formatText()` di `assets/js/i18n.js`:
+   `{legal_name}` `{brand}` `{established}` `{nib}` `{npwp}` `{export_license}` `{kbli}` `{email}` `{wa}`
+   `{wa_display}` `{phone}` `{domain}` `{year}`. Contoh: `"footer.copy": "© {year} {legal_name}. All rights reserved. NIB {nib}."`.
+   Saat menerjemahkan teks baru, **pertahankan token apa adanya** agar nilai legalitas selalu sinkron dengan data admin.
+
+5. **Penanda elemen data** — elemen HTML yang isinya berasal dari data usaha diberi atribut
+   `data-site-field="contact.email"`, `data-site-field="contact.whatsapp"`, `data-site-field="legal.nib"`, dst.
+   Skrip penerap mencari atribut ini untuk menimpa teks **dan** `href`-nya (`mailto:` / `https://wa.me/`).
 
 Selamat mengembangkan dan semoga ekspor komoditas Indonesia semakin mendunia!

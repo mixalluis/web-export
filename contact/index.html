@@ -85,7 +85,7 @@
 
             <!-- Toast banner -->
             <div id="rfq-toast" class="hidden mb-6 p-4 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-medium flex items-center gap-2">
-              <span>✓ Inquiry message copied to clipboard!</span>
+              <span data-i18n="contact.toastCopied">✓ Inquiry message copied to clipboard!</span>
             </div>
 
             <form id="rfq-form" class="space-y-4">
@@ -115,10 +115,10 @@
                 <div>
                   <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="contact.product">Interested Commodity *</label>
                   <select id="rfq-product" class="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                    <option value="Indonesian Gourmet Planifolia Vanilla Beans">Indonesian Gourmet Planifolia Vanilla Beans (HS 0905.10)</option>
-                    <option value="Premium Coconut Shell Charcoal Briquettes">Premium Coconut Shell Charcoal Briquettes (HS 4402.90)</option>
-                    <option value="Indonesian Specialty Green Coffee Beans">Indonesian Specialty Green Coffee Beans (HS 0901.11)</option>
-                    <option value="Indonesian Whole Dried Cloves">Indonesian Whole Dried Cloves (HS 0907.10)</option>
+                    <option value="Indonesian Gourmet Planifolia Vanilla Beans" data-i18n="contact.optVanilla">Indonesian Gourmet Planifolia Vanilla Beans (HS 0905.10)</option>
+                    <option value="Premium Coconut Shell Charcoal Briquettes" data-i18n="contact.optCharcoal">Premium Coconut Shell Charcoal Briquettes (HS 4402.90)</option>
+                    <option value="Indonesian Specialty Green Coffee Beans" data-i18n="contact.optCoffee">Indonesian Specialty Green Coffee Beans (HS 0901.11)</option>
+                    <option value="Indonesian Whole Dried Cloves" data-i18n="contact.optCloves">Indonesian Whole Dried Cloves (HS 0907.10)</option>
                   </select>
                 </div>
                 <div>
@@ -135,9 +135,9 @@
                 <div>
                   <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="contact.incoterm">Preferred Incoterm</label>
                   <select id="rfq-incoterm" class="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                    <option value="FOB (Free On Board)">FOB (Free On Board - Indonesian Seaport)</option>
-                    <option value="CIF (Cost, Insurance & Freight)">CIF (Cost, Insurance & Freight)</option>
-                    <option value="CFR (Cost and Freight)">CFR (Cost and Freight)</option>
+                    <option value="FOB (Free On Board)" data-i18n="contact.incotermFob">FOB (Free On Board - Indonesian Seaport)</option>
+                    <option value="CIF (Cost, Insurance & Freight)" data-i18n="contact.incotermCif">CIF (Cost, Insurance & Freight)</option>
+                    <option value="CFR (Cost and Freight)" data-i18n="contact.incotermCfr">CFR (Cost and Freight)</option>
                   </select>
                 </div>
               </div>
@@ -172,12 +172,12 @@
               </h3>
               <div class="space-y-4 text-sm">
                 <div>
-                  <div class="text-xs text-slate-500">Official Export Email</div>
-                  <a href="mailto:export@anurikanusantara.com" class="font-semibold text-slate-900 hover:text-emerald-700">export@anurikanusantara.com</a>
+                  <div class="text-xs text-slate-500" data-i18n="contact.emailLabel">Official Export Email</div>
+                  <a data-site-field="contact.email" href="mailto:export@anurikanusantara.com" class="font-semibold text-slate-900 hover:text-emerald-700">export@anurikanusantara.com</a>
                 </div>
                 <div>
-                  <div class="text-xs text-slate-500">WhatsApp Export Desk (International)</div>
-                  <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="font-semibold text-slate-900 hover:text-emerald-700">+62 812 3456 7890</a>
+                  <div class="text-xs text-slate-500" data-i18n="contact.waLabel">WhatsApp Export Desk (International)</div>
+                  <a data-site-field="contact.whatsapp" href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="font-semibold text-slate-900 hover:text-emerald-700">+62 812 3456 7890</a>
                 </div>
                 <div>
                   <div class="text-xs text-slate-500" data-i18n="contact.hoursTitle">Business Hours & Response Time</div>
@@ -187,20 +187,20 @@
             </div>
 
             <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs space-y-4">
-              <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Corporate Office & Warehouse</div>
+              <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider" data-i18n="contact.officeTitle">Corporate Office & Warehouse</div>
               <div>
-                <div class="text-xs text-slate-500 mb-1">Export Processing & QC Warehouse:</div>
-                <div class="text-xs sm:text-sm font-medium text-slate-800">East Java Processing Hub, Sidoarjo & Surabaya Area, Indonesia</div>
+                <div class="text-xs text-slate-500 mb-1" data-i18n="contact.officeWhLabel">Export Processing & QC Warehouse:</div>
+                <div class="text-xs sm:text-sm font-medium text-slate-800" data-i18n="contact.officeWhText">East Java Processing Hub, Sidoarjo & Surabaya Area, Indonesia</div>
               </div>
-              <div class="rounded-lg border border-slate-200 bg-slate-100 p-4 text-center text-xs text-slate-600">
+              <div class="rounded-lg border border-slate-200 bg-slate-100 p-4 text-center text-xs text-slate-600" data-i18n="contact.officeGps">
                 Direct Highway Access · 35 km to Tanjung Perak Seaport (IDTPE)
               </div>
             </div>
 
             <!-- Anti-fraud notice -->
             <div class="bg-amber-50 rounded-2xl border border-amber-200 p-6 text-xs text-amber-950 space-y-2">
-              <div class="font-bold text-amber-900 uppercase tracking-wide">Important Security Notice</div>
-              <p>PT Anurika Nusantara Agro only conducts commercial transactions via our verified domain (@anurikanusantara.com) and corporate bank accounts under PT ANURIKA NUSANTARA AGRO. We never use personal bank accounts.</p>
+              <div class="font-bold text-amber-900 uppercase tracking-wide" data-i18n="contact.secTitle">Important Security Notice</div>
+              <p data-i18n="contact.secDesc">PT Anurika Nusantara Agro only conducts commercial transactions via our verified domain (@anurikanusantara.com) and corporate bank accounts under PT ANURIKA NUSANTARA AGRO. We never use personal bank accounts.</p>
             </div>
           </div>
         </div>
@@ -219,7 +219,7 @@
     <div id="floating-wa-container" class="fixed bottom-6 right-6 z-40">
       <button id="floating-wa-btn" class="flex items-center gap-2 p-3.5 sm:px-4 sm:py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full shadow-lg" aria-label="Chat via WhatsApp">
         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
-        <span class="hidden sm:inline font-semibold text-xs whitespace-nowrap">WhatsApp Export Desk</span>
+        <span class="hidden sm:inline font-semibold text-xs whitespace-nowrap" data-i18n="footer.waWidget">WhatsApp Export Desk</span>
       </button>
     </div>
 

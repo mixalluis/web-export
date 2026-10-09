@@ -30,23 +30,32 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
+  // Localised label lookup with an English fallback (used when i18n.js is unavailable)
+  function label(key, fallback) {
+    if (typeof t === 'function') {
+      const value = t(key);
+      if (value && value !== key) return value;
+    }
+    return fallback;
+  }
+
   function buildMessage(data) {
     return [
-      `=== OFFICIAL B2B EXPORT INQUIRY (RFQ) ===`,
-      `Commodity: ${data.product}`,
-      `Estimated Volume: ${data.volume}`,
-      `Preferred Incoterm: ${data.incoterm}`,
-      data.port ? `Destination Port: ${data.port}` : null,
+      label('rfq.msgTitle', '=== OFFICIAL B2B EXPORT INQUIRY (RFQ) ==='),
+      `${label('rfq.msgCommodity', 'Commodity')}: ${data.product}`,
+      `${label('rfq.msgVolume', 'Estimated Volume')}: ${data.volume}`,
+      `${label('rfq.msgIncoterm', 'Preferred Incoterm')}: ${data.incoterm}`,
+      data.port ? `${label('rfq.msgPort', 'Destination Port')}: ${data.port}` : null,
       ``,
-      `--- BUYER CREDENTIALS ---`,
-      `Full Name: ${data.name}`,
-      `Company: ${data.company}`,
-      `Business Email: ${data.email}`,
-      `Country/Region: ${data.country}`,
+      label('rfq.msgBuyer', '--- BUYER CREDENTIALS ---'),
+      `${label('rfq.msgName', 'Full Name')}: ${data.name}`,
+      `${label('rfq.msgCompany', 'Company')}: ${data.company}`,
+      `${label('rfq.msgEmail', 'Business Email')}: ${data.email}`,
+      `${label('rfq.msgCountry', 'Country/Region')}: ${data.country}`,
       ``,
-      data.notes ? `--- REQUIREMENTS / SPECIFICATIONS ---\n${data.notes}\n` : null,
-      `Timestamp: ${new Date().toISOString()}`,
-      `Sent via Anurika Nusantara Agro Global Export Portal`,
+      data.notes ? `${label('rfq.msgNotes', '--- REQUIREMENTS / SPECIFICATIONS ---')}\n${data.notes}\n` : null,
+      `${label('rfq.msgTimestamp', 'Timestamp')}: ${new Date().toISOString()}`,
+      label('rfq.msgFooter', 'Sent via Anurika Nusantara Agro Global Export Portal'),
     ].filter(Boolean).join('\n');
   }
 
@@ -54,14 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorEl = document.getElementById('rfq-error');
     if (!data.name.trim() || !data.company.trim() || !data.email.trim() || !data.country.trim() || !data.volume.trim()) {
       if (errorEl) {
-        errorEl.textContent = "Please fill in all required fields (Name, Company, Business Email, Country, Volume).";
+        errorEl.textContent = label('form.errRequired', "Please fill in all required fields (Name, Company, Business Email, Country, Volume).");
         errorEl.classList.remove('hidden');
       }
       return false;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim())) {
       if (errorEl) {
-        errorEl.textContent = "Please enter a valid business email address.";
+        errorEl.textContent = label('form.errEmail', "Please enter a valid business email address.");
         errorEl.classList.remove('hidden');
       }
       return false;

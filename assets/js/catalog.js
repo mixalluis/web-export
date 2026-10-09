@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const filterBtns = document.querySelectorAll('[data-category-filter]');
   const searchInput = document.getElementById('catalog-search');
-  const productCards = document.querySelectorAll('[data-product-card]');
+  const productCards = document.querySelectorAll('[data-product-card], [data-commodity-item]');
   const counterEl = document.getElementById('catalog-count');
 
   let activeCategory = 'all';
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function filterItems() {
     let visible = 0;
     productCards.forEach(card => {
-      const cardCat = card.getAttribute('data-product-category');
+      const cardCat = card.getAttribute('data-product-category') || card.getAttribute('data-commodity-item') || '';
       const cardText = card.textContent.toLowerCase();
 
       const matchCat = activeCategory === 'all' || cardCat === activeCategory;
@@ -19,9 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (matchCat && matchSearch) {
         card.classList.remove('hidden');
+        card.removeAttribute('aria-hidden');
         visible++;
       } else {
         card.classList.add('hidden');
+        card.setAttribute('aria-hidden', 'true');
       }
     });
 

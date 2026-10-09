@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Panel Data Admin · Anurika Nusantara Agro</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Cabinet+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS via CDN (sama seperti situs publik) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <link rel="stylesheet" href="/admin/assets/admin.css">
+  </head>
+  <body class="bg-slate-100 text-slate-900 font-sans antialiased">
+
+    <!-- Top Bar -->
+    <header class="sticky top-0 z-40 bg-slate-900 text-white shadow-md">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 py-3">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-emerald-600 flex items-center justify-center font-display font-bold text-sm">AN</div>
+            <div>
+              <div class="font-display font-bold text-sm sm:text-base leading-tight">Panel Data Admin</div>
+              <div class="text-[11px] text-slate-400">Anurika Nusantara Agro · input &amp; penyuntingan data situs</div>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span id="save-status" class="text-[11px] px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 border border-slate-700">Memuat data…</span>
+            <button type="button" id="btn-download" class="admin-btn admin-btn-primary">Unduh site-data.json</button>
+            <button type="button" id="btn-import" class="admin-btn">Impor JSON</button>
+            <button type="button" id="btn-reset" class="admin-btn admin-btn-danger">Reset</button>
+            <a href="/" target="_blank" rel="noopener" class="admin-btn">Buka situs ↗</a>
+            <input type="file" id="file-import" accept="application/json,.json" class="hidden" />
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <nav class="flex gap-1 overflow-x-auto pb-2 -mb-px" id="tab-nav">
+          <button type="button" class="admin-tab" data-tab="company">1 · Perusahaan &amp; Kontak</button>
+          <button type="button" class="admin-tab" data-tab="certs">2 · Legalitas &amp; Sertifikat</button>
+          <button type="button" class="admin-tab" data-tab="products">3 · Komoditas</button>
+          <button type="button" class="admin-tab" data-tab="text">4 · Teks Semua Halaman</button>
+          <button type="button" class="admin-tab" data-tab="deploy">5 · Terapkan ke Situs</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+      <div id="load-error" class="hidden bg-red-50 border border-red-200 text-red-800 text-sm rounded-xl p-4"></div>
+
+      <section id="panel-company" class="admin-panel"><div id="mount-company"></div></section>
+      <section id="panel-certs" class="admin-panel hidden"><div id="mount-certs"></div></section>
+      <section id="panel-products" class="admin-panel hidden"><div id="mount-products"></div></section>
+      <section id="panel-text" class="admin-panel hidden"><div id="mount-text"></div></section>
+      <section id="panel-deploy" class="admin-panel hidden"><div id="mount-deploy"></div></section>
+    </main>
+
+    <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 text-[11px] text-slate-500 leading-relaxed">
+      Panel ini berjalan sepenuhnya di browser (tanpa server/database). Perubahan tersimpan otomatis di
+      <code class="px-1 py-0.5 rounded bg-slate-200">localStorage</code>, lalu diterapkan ke berkas situs
+      melalui <code class="px-1 py-0.5 rounded bg-slate-200">python3 tools/apply_site_data.py</code>.
+    </footer>
+
+    <div id="toast" class="hidden fixed bottom-6 right-6 z-50 px-4 py-3 rounded-xl shadow-lg text-sm font-medium"></div>
+
+    <!-- Kamus i18n situs dibaca dari sumber yang sama dengan situs publik -->
+    <script src="/assets/js/i18n.js"></script>
+    <script src="/admin/assets/admin.js"></script>
+  </body>
+</html>

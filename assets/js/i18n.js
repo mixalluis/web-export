@@ -13,7 +13,7 @@ const DICTIONARY = {
     "nav.langBtn": "ID",
 
     // Hero (Grounded for SME Exporter)
-    "hero.badge": "Indonesian Agricultural Exporter · Registered SME · NIB 1289000438192",
+    "hero.badge": "Indonesian Agricultural Exporter · Registered SME · NIB {nib}",
     "hero.title": "Direct Indonesian Agricultural Commodities for Global Importers",
     "hero.desc": "Ethically sourced vanilla beans, coconut charcoal briquettes, specialty green coffee, and Maluku cloves from smallholder farmer collectives. Rigorous moisture control, authentic legalities, and certified lab analysis per shipment.",
     "hero.ctaQuote": "Request Official Quotation",
@@ -110,7 +110,6 @@ const DICTIONARY = {
     "badge.phyto": "Phytosanitary Certificate",
     "badge.coo": "Certificate of Origin (COO)",
     "badge.cooCharcoal": "Certificate of Origin (COO Form D/E/AK)",
-    "badge.coa": "Independent Lab COA",
     "badge.coaVanilla": "Independent Lab COA (Vanillin & Moisture)",
     "badge.coaCloves": "Independent Lab COA (Eugenol & Moisture)",
     "badge.msds": "MSDS (Material Safety Data Sheet)",
@@ -134,11 +133,19 @@ const DICTIONARY = {
     "vanilla.gAParam": "Vanillin > 2.0%",
     "vanilla.gBParam": "Vanillin 1.6% – 2.0%",
     "vanilla.gCParam": "Vanillin 1.4% – 1.6%",
+    "vanilla.gAMoisture": "28% – 33%",
+    "vanilla.gBMoisture": "20% – 25%",
+    "vanilla.gCMoisture": "16% – 20%",
 
     "charcoal.gAParam": "Carbon >80% · 7,400 kcal/kg",
     "charcoal.gBSize": "50 x 100 mm (Center Hole)",
     "charcoal.gBParam": "Carbon >75% · 7,100 kcal/kg",
     "charcoal.gCParam": "Carbon >80% · 7,300 kcal/kg",
+    "charcoal.gAMoisture": "< 5.0%",
+    "charcoal.gASize": "25 x 25 x 25 mm",
+    "charcoal.gBMoisture": "< 6.0%",
+    "charcoal.gCSize": "25 x 25 x 18 mm",
+    "charcoal.gCMoisture": "< 5.0%",
 
     "coffee.gASize": "Screen 18/19 (7.0 mm)",
     "coffee.gAParam": "Max 11 defects · Score 84+",
@@ -146,10 +153,16 @@ const DICTIONARY = {
     "coffee.gBParam": "Clean cup · Low defect",
     "coffee.gCSize": "Screen 17/18",
     "coffee.gCParam": "Score 85+ Specialty",
+    "coffee.gAMoisture": "11.0% – 12.5%",
+    "coffee.gBMoisture": "11.5% – 13.0%",
+    "coffee.gCMoisture": "11.0% – 12.0%",
 
     "cloves.gAParam": "Eugenol > 18.0%",
     "cloves.gBParam": "Eugenol > 16.5%",
     "cloves.gCParam": "High Oil Yield",
+    "cloves.gAMoisture": "< 11.5%",
+    "cloves.gBMoisture": "< 12.5%",
+    "cloves.gCMoisture": "< 13.0%",
 
     // Catalog kickers & params
     "cat.kickerSpices": "Spices & Botanicals · Vanilla planifolia",
@@ -280,9 +293,8 @@ const DICTIONARY = {
     "about.storyTitle": "Ethical Sourcing with Rigorous QC",
     "about.storyP1": "Many foreign buyers struggle with unreliable intermediaries in Indonesia—facing inconsistent moisture, adulterated grades, or surprise shipping delays. We built our operation to eliminate that risk.",
     "about.storyP2": "By maintaining direct relationships with smallholder farmer collectives and running rigorous batch inspections, we ensure grade purity, legal export compliance, and dependable container fulfillment.",
-    "about.facilityTitle": "Our Infrastructure & Quality Facilities",
-    "about.facilityP": "Our export warehouse and processing facility is located in East Java, close to the Port of Tanjung Perak (IDTPE). Features dedicated drying tables, mechanical winnowers, vacuum packaging lines, and an on-site moisture testing station.",
-    "about.facilityCaption": "Centralized QC & Export Warehouse · East Java Facility (Access to Tanjung Perak Port)",
+    "about.facilityCaptionMain": "Centralized QC & Export Warehouse",
+    "about.facilityCaptionSub": "· East Java Facility (Access to Tanjung Perak Port)",
     "about.legalTitle": "Official Corporate Legalities & Registrations",
     "about.legalDesc": "Transparent government registrations and licenses verifiable by your trade embassy or compliance department.",
     "about.legalNibAuth": "Ministry of Investment / BKPM RI (OSS RBA)",
@@ -293,6 +305,7 @@ const DICTIONARY = {
     "about.legalKemendagName": "Registered Exporter License (Kemendag)",
     "about.legalKbliAuth": "Central Bureau of Statistics & OSS",
     "about.legalKbliName": "Standard Business Classification (KBLI)",
+    "about.legalKbliVal": "46312 (Raw Agricultural Trade)",
     "about.viewRecord": "View Official Verification Record →",
     "about.auditKicker": "Facility Audits Welcome",
     "about.auditTitle": "East Java Export Facility & Warehouse, Indonesia",
@@ -307,15 +320,16 @@ const DICTIONARY = {
     "logistics.fobTitle": "FOB (Free On Board)",
     "logistics.fobSub": "Port of Tanjung Perak (IDTPE) / Tanjung Priok (IDTPP)",
     "logistics.fobDesc": "We handle inland transport, export customs, and loading onto your nominated vessel. Risk passes to buyer once loaded.",
-    "logistics.fobNote": "Cost & Risk: Seller clears export; buyer procures ocean vessel freight & marine insurance.",
+    "logistics.costRiskLabel": "Cost & Risk:",
+    "logistics.fobNote": "Seller clears export; buyer procures ocean vessel freight & marine insurance.",
     "logistics.cfrTitle": "CFR (Cost and Freight)",
     "logistics.cfrSub": "Any worldwide named destination container port",
     "logistics.cfrDesc": "We arrange and pay ocean freight to your named port of destination. Buyer assumes risk from loading port and procures marine cargo insurance.",
-    "logistics.cfrNote": "Cost & Risk: Seller pays ocean shipping freight; buyer procures destination clearance.",
+    "logistics.cfrNote": "Seller pays ocean shipping freight; buyer procures destination clearance.",
     "logistics.cifTitle": "CIF (Cost, Insurance & Freight)",
     "logistics.cifSub": "Any worldwide named destination container port",
     "logistics.cifDesc": "We cover freight plus comprehensive marine cargo insurance policy directly to your destination seaport.",
-    "logistics.cifNote": "Cost & Risk: Seller pays ocean freight and marine cargo insurance policy (Institute Clauses A).",
+    "logistics.cifNote": "Seller pays ocean freight and marine cargo insurance policy (Institute Clauses A).",
     "logistics.portsTitle": "Primary Indonesian Loading Seaports",
     "logistics.portsDesc": "Strategic deepwater ports offering direct mother-vessel and feeder connections to major global shipping corridors.",
     "logistics.thPortName": "Seaport Name",
@@ -372,6 +386,13 @@ const DICTIONARY = {
     "contact.waLabel": "WhatsApp Export Desk (International)",
     "contact.hoursTitle": "Business Hours & Response Time",
     "contact.hoursDesc": "Monday – Saturday: 08:00 – 17:00 WIB (UTC+7). Response within 24 business hours.",
+    "contact.optVanilla": "Indonesian Gourmet Planifolia Vanilla Beans (HS 0905.10)",
+    "contact.optCharcoal": "Premium Coconut Shell Charcoal Briquettes (HS 4402.90)",
+    "contact.optCoffee": "Indonesian Specialty Green Coffee Beans (HS 0901.11)",
+    "contact.optCloves": "Indonesian Whole Dried Cloves (HS 0907.10)",
+    "contact.incotermFob": "FOB (Free On Board - Indonesian Seaport)",
+    "contact.incotermCif": "CIF (Cost, Insurance & Freight)",
+    "contact.incotermCfr": "CFR (Cost and Freight)",
     "contact.officeTitle": "Corporate Office & Warehouse",
     "contact.officeWhLabel": "Export Processing & QC Warehouse:",
     "contact.officeWhText": "East Java Processing Hub, Sidoarjo & Surabaya Area, Indonesia",
@@ -380,16 +401,84 @@ const DICTIONARY = {
     "contact.secDesc": "PT Anurika Nusantara Agro only conducts commercial transactions via our verified domain (@anurikanusantara.com) and corporate bank accounts under PT ANURIKA NUSANTARA AGRO. We never use personal bank accounts.",
     "contact.toastCopied": "✓ Inquiry message copied to clipboard!",
 
+    "form.errRequired": "Please fill in all required fields (Name, Company, Business Email, Country, Volume).",
+    "form.errEmail": "Please enter a valid business email address.",
+
+    // RFQ message payload (email / WhatsApp / clipboard dispatch)
+    "rfq.msgTitle": "=== OFFICIAL B2B EXPORT INQUIRY (RFQ) ===",
+    "rfq.msgCommodity": "Commodity",
+    "rfq.msgVolume": "Estimated Volume",
+    "rfq.msgIncoterm": "Preferred Incoterm",
+    "rfq.msgPort": "Destination Port",
+    "rfq.msgBuyer": "--- BUYER CREDENTIALS ---",
+    "rfq.msgName": "Full Name",
+    "rfq.msgCompany": "Company",
+    "rfq.msgEmail": "Business Email",
+    "rfq.msgCountry": "Country/Region",
+    "rfq.msgNotes": "--- REQUIREMENTS / SPECIFICATIONS ---",
+    "rfq.msgTimestamp": "Timestamp",
+    "rfq.msgFooter": "Sent via Anurika Nusantara Agro Global Export Portal",
+
+    // WhatsApp floating widget (prefilled chat message, {product} is replaced at runtime)
+    "wa.msgProduct": "Hello Anurika Nusantara Agro Export Desk, I am interested in importing {product}. Could you provide the latest FOB/CIF specification and price quotation?",
+    "wa.msgGeneral": "Hello Anurika Nusantara Agro Export Desk, I am interested in sourcing commodities from Indonesia. Could you provide your latest quotation?",
+
     // Footer
     "footer.desc": "PT Anurika Nusantara Agro is a registered Indonesian commodity exporter committed to supply chain transparency, quality testing, and dependable fulfillment.",
     "footer.quick": "Quick Navigation",
+    "footer.location": "Surabaya & East Java, Indonesia",
+    "footer.nibChip": "NIB: {nib} (OSS RI)",
+    "footer.kbliChip": "KBLI: 46312 (Agricultural Export Trade)",
+    "footer.waWidget": "WhatsApp Export Desk",
     "footer.commodities": "Export Commodities",
     "footer.contact": "Export Desk",
     "footer.securityNotice": "Security Advisory: PT Anurika Nusantara Agro only conducts transactions via our verified corporate domain (@anurikanusantara.com) and corporate bank accounts under PT ANURIKA NUSANTARA AGRO.",
-    "footer.copy": "© 2026 PT Anurika Nusantara Agro. All rights reserved. NIB 1289000438192.",
+    "footer.copy": "© {year} {legal_name}. All rights reserved. NIB {nib}.",
+    "privacy.back": "← Back to Home",
+    "privacy.title": "Privacy Policy & Commercial Data Handling",
+    "privacy.effective": "Effective Date: October 2026 · PT Anurika Nusantara Agro",
+    "privacy.s1Title": "1. Scope of Inquiry Information",
+    "privacy.s1Desc": "When you submit a Request for Quotation (RFQ), your contact details are solely used to formulate your formal commercial Proforma invoice.",
+    "privacy.s2Title": "2. Zero-Retention Public Server Architecture",
+    "privacy.s2Desc": "This static website does not store inquiry submissions on a public server database, minimizing data breach risks.",
+    "privacy.s3Title": "3. Commercial Confidentiality",
+    "privacy.s3Desc": "We strictly safeguard buyer commercial data, price agreements, private label markings, and packaging artwork.",
+
+    "err.homeLink": "Home →",
+    "err.title": "Page Not Found",
+    "err.desc": "The requested page could not be located. You can navigate back to our homepage or view our commodity catalog.",
+    "err.returnHome": "Return to Home",
+    "err.browse": "Browse Commodities",
+    "err.footer": "© {year} {legal_name} · NIB {nib}",
+
+    "cert.nib.title": "Nomor Induk Berusaha (NIB) & Export Business License",
+    "cert.nib.issuer": "OSS RBA Institution — Ministry of Investment / BKPM RI",
+    "cert.nib.valid": "Valid for as long as the business activities are conducted",
+    "cert.nib.desc": "Validates customs rights for exporting agricultural commodities and spices under KBLI 46312.",
+    "cert.npwp.title": "Corporate Tax Identification Number (NPWP)",
+    "cert.npwp.issuer": "Directorate General of Taxes — Ministry of Finance RI",
+    "cert.npwp.valid": "Active / Registered for Export Tax",
+    "cert.npwp.desc": "Official corporate tax identity for international trade activities.",
+    "cert.kemendag.title": "Registered Exporter License (Kemendag)",
+    "cert.kemendag.issuer": "Ministry of Trade of the Republic of Indonesia",
+    "cert.kemendag.valid": "Active — Registered in the INATRADE System",
+    "cert.kemendag.desc": "Legal exporter license for plantation commodities, integrated with the INSW portal.",
+    "cert.phyto.title": "Phytosanitary Certificate",
+    "cert.phyto.issuer": "Indonesian Quarantine Authority",
+    "cert.phyto.valid": "Issued per shipment",
+    "cert.phyto.desc": "Official quarantine assurance certifying the commodity lot is free from quarantine plant pests.",
+    "cert.coa.title": "Certificate of Analysis (COA) — Laboratory Testing",
+    "cert.coa.issuer": "Independent Testing Surveyor (PT Carsurin / SGS Indonesia)",
+    "cert.coa.valid": "Issued per tested batch lot",
+    "cert.coa.desc": "ISO/IEC 17025 accredited laboratory report confirming moisture, purity, and active compounds.",
+    "cert.coo.title": "Certificate of Origin (COO)",
+    "cert.coo.issuer": "Issuing Body for Certificates of Origin (IPSKA) — East Java Trade Office",
+    "cert.coo.valid": "Per bill of lading / shipment",
+    "cert.coo.desc": "Certifies that the commodity is produced in Indonesia, enabling preferential import duty facilities in the destination country.",
+    "footer.emailLabel": "Email:",
+    "footer.waLabel": "WhatsApp:",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Trade",
-    "footer.waWidget": "WhatsApp Export Desk",
 
     // Modals
     "modal.certTitle": "Official Verification Record",
@@ -408,7 +497,7 @@ const DICTIONARY = {
     "nav.langBtn": "EN",
 
     // Hero (Bersih & realistis untuk UMK Baru)
-    "hero.badge": "Eksportir Pertanian Indonesia · UMK Terdaftar · NIB 1289000438192",
+    "hero.badge": "Eksportir Pertanian Indonesia · UMK Terdaftar · NIB {nib}",
     "hero.title": "Komoditas Pertanian Unggulan Indonesia Langsung untuk Buyer Global",
     "hero.desc": "Biji vanili gourmet, briket arang tempurung kelapa, biji kopi hijau spesialti, dan cengkeh asli Maluku langsung dari kelompok tani mitra. Kontrol kadar air ketat, legalitas sah OSS, dan siap uji laboratorium per pengiriman.",
     "hero.ctaQuote": "Minta Penawaran Resmi",
@@ -505,7 +594,6 @@ const DICTIONARY = {
     "badge.phyto": "Sertifikat Fitosanitari",
     "badge.coo": "Surat Keterangan Asal (COO / SKA)",
     "badge.cooCharcoal": "Surat Keterangan Asal (COO Form D/E/AK)",
-    "badge.coa": "Laporan Uji Lab Independen (COA)",
     "badge.coaVanilla": "Laporan Uji Lab Independen (Kadar Vanilin & Air)",
     "badge.coaCloves": "Laporan Uji Lab Independen (Kadar Eugenol & Air)",
     "badge.msds": "MSDS (Lembar Data Keselamatan Bahan)",
@@ -529,11 +617,19 @@ const DICTIONARY = {
     "vanilla.gAParam": "Kadar Vanilin > 2,0%",
     "vanilla.gBParam": "Kadar Vanilin 1,6% – 2,0%",
     "vanilla.gCParam": "Kadar Vanilin 1,4% – 1,6%",
+    "vanilla.gAMoisture": "28% – 33%",
+    "vanilla.gBMoisture": "20% – 25%",
+    "vanilla.gCMoisture": "16% – 20%",
 
     "charcoal.gAParam": "Karbon >80% · 7.400 kkal/kg",
     "charcoal.gBSize": "50 x 100 mm (Lubang Tengah)",
     "charcoal.gBParam": "Karbon >75% · 7.100 kkal/kg",
     "charcoal.gCParam": "Karbon >80% · 7.300 kkal/kg",
+    "charcoal.gAMoisture": "Di bawah 5,0%",
+    "charcoal.gASize": "25 x 25 x 25 mm",
+    "charcoal.gBMoisture": "Di bawah 6,0%",
+    "charcoal.gCSize": "25 x 25 x 18 mm",
+    "charcoal.gCMoisture": "Di bawah 5,0%",
 
     "coffee.gASize": "Screen 18/19 (7,0 mm)",
     "coffee.gAParam": "Maks. 11 defect · Skor 84+",
@@ -541,10 +637,16 @@ const DICTIONARY = {
     "coffee.gBParam": "Clean cup · Defect rendah",
     "coffee.gCSize": "Screen 17/18",
     "coffee.gCParam": "Skor 85+ Spesialti",
+    "coffee.gAMoisture": "11,0% – 12,5%",
+    "coffee.gBMoisture": "11,5% – 13,0%",
+    "coffee.gCMoisture": "11,0% – 12,0%",
 
     "cloves.gAParam": "Kadar Eugenol > 18,0%",
     "cloves.gBParam": "Kadar Eugenol > 16,5%",
     "cloves.gCParam": "Kandungan Minyak Ekstraksi Tinggi",
+    "cloves.gAMoisture": "Di bawah 11,5%",
+    "cloves.gBMoisture": "Di bawah 12,5%",
+    "cloves.gCMoisture": "Di bawah 13,0%",
 
     // Catalog kickers & params
     "cat.kickerSpices": "Rempah & Botani · Vanilla planifolia",
@@ -675,9 +777,8 @@ const DICTIONARY = {
     "about.storyTitle": "Kemitraan Petani dengan Kontrol Kualitas Ketat",
     "about.storyP1": "Banyak buyer luar negeri khawatir berurusan dengan perantara yang tidak jelas legalitasnya di Indonesia—kadar air tidak konsisten, grade dicampur, atau dokumen tertahan di bea cukai. Kami beroperasi untuk memberikan kepastian dan keamanan transaksi.",
     "about.storyP2": "Melalui kemitraan erat bersama kelompok tani dan pemeriksaan teliti sebelum pengiriman, kami menjaga kemurnian grade, kepatuhan izin ekspor resmi, dan ketepatan pasokan kontainer.",
-    "about.facilityTitle": "Fasilitas & Gudang Terpadu Kami",
-    "about.facilityP": "Gudang ekspor kami berlokasi di Jawa Timur, dengan akses mudah ke Pelabuhan Tanjung Perak Surabaya (IDTPE). Dilengkapi lantai penjemuran bersih, mesin pengayak getar, ruang pengemasan vakum, dan alat ukur kadar air terkalibrasi.",
-    "about.facilityCaption": "Gudang Ekspor & Kontrol Mutu Terpadu · Fasilitas Jawa Timur (Akses ke Pelabuhan Tanjung Perak)",
+    "about.facilityCaptionMain": "Gudang Ekspor & Kontrol Mutu Terpadu",
+    "about.facilityCaptionSub": "· Fasilitas Jawa Timur (Akses ke Pelabuhan Tanjung Perak)",
     "about.legalTitle": "Legalitas Usaha & Izin Resmi Pemerintah",
     "about.legalDesc": "Terdaftar resmi pada sistem OSS RBA Kementerian Investasi/BKPM dan Kementerian Perdagangan RI yang dapat diverifikasi kapan saja.",
     "about.legalNibAuth": "Kementerian Investasi / BKPM RI (OSS RBA)",
@@ -688,6 +789,7 @@ const DICTIONARY = {
     "about.legalKemendagName": "Izin Tanda Daftar Eksportir (Kemendag)",
     "about.legalKbliAuth": "Badan Pusat Statistik & Lembaga OSS",
     "about.legalKbliName": "Klasifikasi Baku Lapangan Usaha (KBLI)",
+    "about.legalKbliVal": "46312 (Perdagangan Hasil Pertanian)",
     "about.viewRecord": "Lihat Catatan Verifikasi Resmi →",
     "about.auditKicker": "Terbuka untuk Audit Fasilitas",
     "about.auditTitle": "Gudang & Fasilitas Pengolahan Ekspor Jawa Timur, Indonesia",
@@ -702,15 +804,16 @@ const DICTIONARY = {
     "logistics.fobTitle": "FOB (Free On Board)",
     "logistics.fobSub": "Pelabuhan Tanjung Perak (IDTPE) / Tanjung Priok (IDTPP)",
     "logistics.fobDesc": "Kami mengurus transportasi darat, izin ekspor, karantina, dan pemuatan ke atas kapal di Pelabuhan Tanjung Perak atau Tanjung Priok. Risiko beralih ke pembeli begitu barang berada di atas kapal.",
-    "logistics.fobNote": "Biaya & Risiko: Penjual mengurus izin ekspor & muat kapal; pembeli memesan kargo kapal laut & asuransi.",
+    "logistics.costRiskLabel": "Biaya & Risiko:",
+    "logistics.fobNote": "Penjual mengurus izin ekspor & muat kapal; pembeli memesan kargo kapal laut & asuransi.",
     "logistics.cfrTitle": "CFR (Cost and Freight)",
     "logistics.cfrSub": "Pelabuhan kontainer tujuan internasional mana pun",
     "logistics.cfrDesc": "Kami memesan dan membayar ongkos kapal kargo laut hingga pelabuhan tujuan pembeli. Risiko beralih di pelabuhan muat dan pembeli mengurus asuransi laut.",
-    "logistics.cfrNote": "Biaya & Risiko: Penjual membayar ongkos kapal kargo laut; pembeli mengurus bea cukai negara tujuan.",
+    "logistics.cfrNote": "Penjual membayar ongkos kapal kargo laut; pembeli mengurus bea cukai negara tujuan.",
     "logistics.cifTitle": "CIF (Cost, Insurance & Freight)",
     "logistics.cifSub": "Pelabuhan kontainer tujuan internasional mana pun",
     "logistics.cifDesc": "Kami menanggung ongkos kapal laut ditambah polis asuransi kargo laut komprehensif hingga pelabuhan tujuan pembeli.",
-    "logistics.cifNote": "Biaya & Risiko: Penjual membayar ongkos kapal laut dan polis asuransi kargo laut komprehensif (Institute Clauses A).",
+    "logistics.cifNote": "Penjual membayar ongkos kapal laut dan polis asuransi kargo laut komprehensif (Institute Clauses A).",
     "logistics.portsTitle": "Pelabuhan Muat Utama Indonesia",
     "logistics.portsDesc": "Pelabuhan laut dalam strategis dengan jalur langsung kapal induk dan kapal pengumpan ke koridor pelayaran global.",
     "logistics.thPortName": "Nama Pelabuhan",
@@ -767,6 +870,13 @@ const DICTIONARY = {
     "contact.waLabel": "Meja Ekspor WhatsApp (Internasional)",
     "contact.hoursTitle": "Jam Operasional & Respon",
     "contact.hoursDesc": "Senin – Sabtu: 08:00 – 17:00 WIB (UTC+7). Respon dalam 24 jam kerja.",
+    "contact.optVanilla": "Biji Vanila Planifolia Gourmet Indonesia (HS 0905.10)",
+    "contact.optCharcoal": "Briket Arang Tempurung Kelapa Premium (HS 4402.90)",
+    "contact.optCoffee": "Biji Kopi Hijau Spesialti Indonesia (HS 0901.11)",
+    "contact.optCloves": "Cengkeh Kering Utuh Indonesia (HS 0907.10)",
+    "contact.incotermFob": "FOB (Free On Board - Pelabuhan Indonesia)",
+    "contact.incotermCif": "CIF (Cost, Insurance & Freight)",
+    "contact.incotermCfr": "CFR (Cost and Freight)",
     "contact.officeTitle": "Kantor & Fasilitas Gudang",
     "contact.officeWhLabel": "Gudang Pengolahan & Kontrol Mutu:",
     "contact.officeWhText": "Pusat Pengolahan Jawa Timur, Area Sidoarjo & Surabaya, Indonesia",
@@ -775,16 +885,84 @@ const DICTIONARY = {
     "contact.secDesc": "PT Anurika Nusantara Agro hanya bertransaksi melalui domain resmi perusahaan (@anurikanusantara.com) dan rekening bank resmi korporat atas nama PT ANURIKA NUSANTARA AGRO. Kami tidak pernah menggunakan rekening pribadi.",
     "contact.toastCopied": "✓ Draft pesan permintaan penawaran berhasil disalin ke clipboard!",
 
+    "form.errRequired": "Mohon lengkapi semua kolom wajib (Nama, Perusahaan, Email Bisnis, Negara, Volume).",
+    "form.errEmail": "Mohon masukkan alamat email bisnis yang valid.",
+
+    // RFQ message payload (email / WhatsApp / clipboard dispatch)
+    "rfq.msgTitle": "=== PERMINTAAN PENAWARAN EKSPOR RESMI (RFQ) ===",
+    "rfq.msgCommodity": "Komoditas",
+    "rfq.msgVolume": "Perkiraan Volume",
+    "rfq.msgIncoterm": "Pilihan Incoterm",
+    "rfq.msgPort": "Pelabuhan Tujuan",
+    "rfq.msgBuyer": "--- DATA PEMBELI ---",
+    "rfq.msgName": "Nama Lengkap",
+    "rfq.msgCompany": "Perusahaan",
+    "rfq.msgEmail": "Email Bisnis",
+    "rfq.msgCountry": "Negara/Wilayah",
+    "rfq.msgNotes": "--- KEBUTUHAN / SPESIFIKASI ---",
+    "rfq.msgTimestamp": "Waktu Pengiriman",
+    "rfq.msgFooter": "Terkirim melalui Portal Ekspor Global Anurika Nusantara Agro",
+
+    // WhatsApp floating widget (prefilled chat message, {product} is replaced at runtime)
+    "wa.msgProduct": "Halo Meja Ekspor Anurika Nusantara Agro, saya tertarik mengimpor {product}. Mohon informasi spesifikasi teknis dan penawaran harga FOB/CIF terbaru.",
+    "wa.msgGeneral": "Halo Meja Ekspor Anurika Nusantara Agro, saya tertarik dengan pasokan komoditas dari Indonesia. Mohon informasi penawaran harga terbaru.",
+
     // Footer
     "footer.desc": "PT Anurika Nusantara Agro adalah eksportir komoditas pertanian Indonesia berizin resmi yang berkomitmen pada transparansi rantai pasok dan kepatuhan standar internasional.",
     "footer.quick": "Navigasi Cepat",
+    "footer.location": "Surabaya & Jawa Timur, Indonesia",
+    "footer.nibChip": "NIB: {nib} (OSS RI)",
+    "footer.kbliChip": "KBLI: 46312 (Perdagangan Ekspor Pertanian)",
+    "footer.waWidget": "Meja Ekspor WhatsApp",
     "footer.commodities": "Komoditas Ekspor",
     "footer.contact": "Meja Ekspor",
     "footer.securityNotice": "Peringatan Keamanan: PT Anurika Nusantara Agro hanya bertransaksi melalui domain resmi perusahaan (@anurikanusantara.com) dan rekening bank atas nama PT ANURIKA NUSANTARA AGRO.",
-    "footer.copy": "© 2026 PT Anurika Nusantara Agro. Hak cipta dilindungi undang-undang. NIB 1289000438192.",
+    "footer.copy": "© {year} {legal_name}. Hak cipta dilindungi undang-undang. NIB {nib}.",
+    "cert.nib.title": "Nomor Induk Berusaha (NIB) & Izin Usaha Ekspor",
+    "cert.nib.issuer": "Lembaga OSS RBA - Kementerian Investasi / BKPM RI",
+    "cert.nib.valid": "Berlaku Selama Menjalankan Kegiatan Usaha",
+    "cert.nib.desc": "Memvalidasi hak kepabeanan ekspor komoditas pertanian dan rempah di bawah KBLI 46312.",
+    "privacy.back": "← Kembali ke Beranda",
+    "privacy.title": "Kebijakan Privasi & Penanganan Data Komersial",
+    "privacy.effective": "Tanggal Berlaku: Oktober 2026 · PT Anurika Nusantara Agro",
+    "privacy.s1Title": "1. Cakupan Informasi Permintaan",
+    "privacy.s1Desc": "Saat Anda mengirimkan Permintaan Penawaran (RFQ), data kontak Anda hanya digunakan untuk menyusun faktur Proforma komersial resmi dan penawaran pengapalan Anda.",
+    "privacy.s2Title": "2. Arsitektur Server Publik Tanpa Penyimpanan",
+    "privacy.s2Desc": "Situs statis ini tidak menyimpan kiriman permintaan pada basis data server publik mana pun, sehingga meminimalkan risiko kebocoran data.",
+    "privacy.s3Title": "3. Kerahasiaan Komersial",
+    "privacy.s3Desc": "Kami melindungi secara ketat data komersial pembeli, kesepakatan harga, penandaan label privat, dan desain kemasan.",
+
+    "err.homeLink": "Beranda →",
+    "err.title": "Halaman Tidak Ditemukan",
+    "err.desc": "Halaman yang Anda minta tidak dapat ditemukan. Anda dapat kembali ke beranda kami atau melihat katalog komoditas kami.",
+    "err.returnHome": "Kembali ke Beranda",
+    "err.browse": "Lihat Komoditas",
+    "err.footer": "© {year} {legal_name} · NIB {nib}",
+
+    "cert.npwp.title": "Nomor Pokok Wajib Pajak (NPWP) Perusahaan",
+    "cert.npwp.issuer": "Direktorat Jenderal Pajak - Kementerian Keuangan RI",
+    "cert.npwp.valid": "Aktif / Terdaftar Pajak Ekspor",
+    "cert.npwp.desc": "Identitas perpajakan resmi korporasi dalam kegiatan perdagangan internasional.",
+    "cert.kemendag.title": "Tanda Daftar Eksportir Terdaftar (Kemendag)",
+    "cert.kemendag.issuer": "Kementerian Perdagangan Republik Indonesia",
+    "cert.kemendag.valid": "Aktif - Teregistrasi Sistem INATRADE",
+    "cert.kemendag.desc": "Izin legal eksportir komoditas perkebunan terintegrasi dengan portal INSW.",
+    "cert.phyto.title": "Sertifikat Fitosanitari (Phytosanitary Certificate)",
+    "cert.phyto.issuer": "Badan Karantina Indonesia (Indonesian Quarantine Authority)",
+    "cert.phyto.valid": "Diterbitkan per Pengapalan (Per Shipment)",
+    "cert.phyto.desc": "Jaminan karantina resmi membuktikan lot komoditas bebas dari organisme pengganggu tumbuhan karantina.",
+    "cert.coa.title": "Certificate of Analysis (COA) - Uji Laboratorium",
+    "cert.coa.issuer": "Independent Testing Surveyor (PT Carsurin / SGS Indonesia)",
+    "cert.coa.valid": "Diterbitkan per Batch Lot Uji",
+    "cert.coa.desc": "Laporan uji lab terakreditasi ISO/IEC 17025 mengonfirmasi kadar air, kemurnian, dan zat aktif.",
+    "cert.coo.title": "Surat Keterangan Asal (Certificate of Origin - COO)",
+    "cert.coo.issuer": "Instansi Penerbit SKA (IPSKA) - Dinas Perdagangan Jawa Timur",
+    "cert.coo.valid": "Per B/L Pengapalan",
+    "cert.coo.desc": "Membuktikan komoditas diproduksi di Indonesia untuk fasilitas preferensi tarif bea masuk di negara tujuan.",
+    "footer.emailLabel": "Email:",
+    "footer.waLabel": "WhatsApp:",
     "footer.privacy": "Kebijakan Privasi",
     "footer.terms": "Ketentuan Dagang",
-    "footer.waWidget": "Meja Ekspor WhatsApp",
 
     // Modals
     "modal.certTitle": "Catatan Verifikasi Resmi",
@@ -793,6 +971,56 @@ const DICTIONARY = {
     "modal.validity": "Status Masa Berlaku:",
   }
 };
+
+// Structured company data exposed as {tokens} so one value can drive every page
+function siteDataTokens() {
+  const cfg = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG) ? APP_CONFIG : {};
+  const legal = cfg.legal || {};
+  const contact = cfg.contact || {};
+  const site = cfg.site || {};
+  return {
+    legal_name: cfg.companyName || '',
+    brand: cfg.tradingName || cfg.companyName || '',
+    established: cfg.establishmentYear ? String(cfg.establishmentYear) : '',
+    nib: legal.nib || '',
+    npwp: legal.npwp || '',
+    export_license: legal.exportLicense || '',
+    kbli: legal.kbli || '',
+    email: contact.email || '',
+    wa: contact.whatsappNumber || '',
+    wa_display: contact.whatsappDisplay || contact.phoneDisplay || '',
+    phone: contact.phoneDisplay || contact.phone || '',
+    domain: String(site.domain || '').replace(/\/+$/, '')
+  };
+}
+
+// Replaces the {year} token, the structured data tokens, and any optional {token} supplied by the caller
+function formatText(text, vars) {
+  let out = String(text);
+  const tokens = siteDataTokens();
+  Object.keys(tokens).forEach(name => {
+    if (tokens[name]) out = out.split('{' + name + '}').join(tokens[name]);
+  });
+  // Caller-supplied {year} wins over the current date so tests/previews stay deterministic
+  const year = (vars && vars.year !== undefined) ? vars.year : new Date().getFullYear();
+  out = out.split('{year}').join(String(year));
+  if (vars) {
+    Object.keys(vars).forEach(name => {
+      if (name === 'year') return;
+      out = out.split('{' + name + '}').join(String(vars[name]));
+    });
+  }
+  return out;
+}
+
+// Translation helper usable by any script on the page (rfq-form.js, main.js, whatsapp.js, ...)
+function t(key, vars) {
+  const lang = getActiveLanguage();
+  const dict = DICTIONARY[lang] || DICTIONARY.en;
+  if (dict[key] !== undefined) return formatText(dict[key], vars);
+  if (DICTIONARY.en[key] !== undefined) return formatText(DICTIONARY.en[key], vars);
+  return key;
+}
 
 function getActiveLanguage() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -809,11 +1037,11 @@ function applyLanguage(lang) {
 
   const dict = DICTIONARY[lang] || DICTIONARY.en;
 
-  // Update all elements with data-i18n
+  // Update all elements with data-i18n (supports the dynamic {year} token)
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (dict[key]) {
-      el.textContent = dict[key];
+      el.textContent = formatText(dict[key]);
     }
   });
 

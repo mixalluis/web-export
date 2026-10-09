@@ -1,4 +1,43 @@
 // General Utilities (Scroll animation, certificates modal, gallery selector, current year)
+
+// Supported certificate IDs - display strings live in i18n.js under cert.<id>.*
+const CERT_IDS = ['nib', 'npwp', 'kemendag', 'phyto', 'coa', 'coo'];
+
+// Official document registration numbers (not translated - managed by the admin data app)
+const CERT_REG_NOS = {
+  nib: "1289000438192",
+  npwp: "42.819.301.4-412.000",
+  kemendag: "EXP-ID/KEMENDAG-2021/04921",
+  phyto: "IQA-KT-EXP/SUB/2026/0892",
+  coa: "COA-LAB/ID/2026/0411",
+  coo: "COO-SKA/ID/2026/1944"
+};
+
+let activeCertId = CERT_IDS[0];
+
+// Localised string lookup with an English fallback (works even if i18n.js is missing)
+function tr(key, fallback) {
+  if (typeof t === 'function') {
+    const value = t(key);
+    if (value && value !== key) return value;
+  }
+  return fallback || '';
+}
+
+// Render the certificate modal body for one certificate id in the active language
+function renderCertModal(certId) {
+  activeCertId = certId;
+  const set = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+  };
+  set('cert-modal-title', tr('cert.' + certId + '.title'));
+  set('cert-modal-issuer', tr('cert.' + certId + '.issuer'));
+  set('cert-modal-reg', CERT_REG_NOS[certId] || '');
+  set('cert-modal-valid', tr('cert.' + certId + '.valid'));
+  set('cert-modal-desc', tr('cert.' + certId + '.desc'));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // Update footer year
   const yearEl = document.getElementById('copyright-year');
@@ -25,73 +64,16 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => el.classList.add('revealed'));
   }
 
-  // Certificate Modal Handler
+  // Certificate Modal Handler (labels come from the i18n.js cert.<id>.* keys)
   const certModal = document.getElementById('cert-modal');
   const certClose = document.getElementById('cert-modal-close');
   const certTriggers = document.querySelectorAll('[data-cert-id]');
 
-  const certData = {
-    nib: {
-      title: "Nomor Induk Berusaha (NIB) & Izin Usaha Ekspor",
-      issuer: "Lembaga OSS RBA - Kementerian Investasi / BKPM RI",
-      regNo: "1289000438192",
-      validUntil: "Berlaku Selama Menjalankan Kegiatan Usaha",
-      desc: "Memvalidasi hak kepabeanan ekspor komoditas pertanian dan rempah di bawah KBLI 46312."
-    },
-    npwp: {
-      title: "Nomor Pokok Wajib Pajak (NPWP) Perusahaan",
-      issuer: "Direktorat Jenderal Pajak - Kementerian Keuangan RI",
-      regNo: "42.819.301.4-412.000",
-      validUntil: "Aktif / Terdaftar Pajak Ekspor",
-      desc: "Identitas perpajakan resmi korporasi dalam kegiatan perdagangan internasional."
-    },
-    kemendag: {
-      title: "Tanda Daftar Eksportir Terdaftar (Kemendag)",
-      issuer: "Kementerian Perdagangan Republik Indonesia",
-      regNo: "EXP-ID/KEMENDAG-2021/04921",
-      validUntil: "Aktif - Teregistrasi Sistem INATRADE",
-      desc: "Izin legal eksportir komoditas perkebunan terintegrasi dengan portal INSW."
-    },
-    phyto: {
-      title: "Sertifikat Fitosanitari (Phytosanitary Certificate)",
-      issuer: "Badan Karantina Indonesia (Indonesian Quarantine Authority)",
-      regNo: "IQA-KT-EXP/SUB/2026/0892",
-      validUntil: "Diterbitkan per Pengapalan (Per Shipment)",
-      desc: "Jaminan karantina resmi membuktikan lot komoditas bebas dari organisme pengganggu tumbuhan karantina."
-    },
-    coa: {
-      title: "Certificate of Analysis (COA) - Uji Laboratorium",
-      issuer: "Independent Testing Surveyor (PT Carsurin / SGS Indonesia)",
-      regNo: "COA-LAB/ID/2026/0411",
-      validUntil: "Diterbitkan per Batch Lot Uji",
-      desc: "Laporan uji lab terakreditasi ISO/IEC 17025 mengonfirmasi kadar air, kemurnian, dan zat aktif."
-    },
-    coo: {
-      title: "Surat Keterangan Asal (Certificate of Origin - COO)",
-      issuer: "Instansi Penerbit SKA (IPSKA) - Dinas Perdagangan Jawa Timur",
-      regNo: "COO-SKA/ID/2026/1944",
-      validUntil: "Per B/L Pengapalan",
-      desc: "Membuktikan komoditas diproduksi di Indonesia untuk fasilitas preferensi tarif bea masuk di negara tujuan."
-    }
-  };
-
   certTriggers.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const id = btn.getAttribute('data-cert-id');
-      const data = certData[id] || certData.nib;
-
-      const titleEl = document.getElementById('cert-modal-title');
-      const issuerEl = document.getElementById('cert-modal-issuer');
-      const regEl = document.getElementById('cert-modal-reg');
-      const validEl = document.getElementById('cert-modal-valid');
-      const descEl = document.getElementById('cert-modal-desc');
-
-      if (titleEl) titleEl.textContent = data.title;
-      if (issuerEl) issuerEl.textContent = data.issuer;
-      if (regEl) regEl.textContent = data.regNo;
-      if (validEl) validEl.textContent = data.validUntil;
-      if (descEl) descEl.textContent = data.desc;
+      const requested = btn.getAttribute('data-cert-id');
+      renderCertModal(CERT_IDS.indexOf(requested) !== -1 ? requested : CERT_IDS[0]);
 
       if (certModal) certModal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
@@ -104,6 +86,13 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = '';
     });
   }
+
+  // Keep an open certificate modal in sync when the visitor switches language
+  window.addEventListener('languageChanged', () => {
+    if (certModal && !certModal.classList.contains('hidden')) {
+      renderCertModal(activeCertId);
+    }
+  });
 
   // Gallery Thumbnail Clickers
   const thumbs = document.querySelectorAll('[data-gallery-thumb]');
