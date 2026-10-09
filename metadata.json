@@ -1,0 +1,6 @@
+{
+  "name": "Nusantara Export Profile & Commodity Catalog",
+  "description": "Bilingual (English & Indonesian) B2B export company profile and commodity catalog for Indonesian SME exporters with RFQ quote builder and logistics guide.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

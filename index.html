@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PT Anurika Nusantara Agro | Indonesian Commodity Exporter</title>
+    <meta name="description" content="Direct Indonesian agricultural commodity exporter. Vanilla beans, coconut charcoal briquettes, specialty green coffee, and Maluku cloves with certified lab specs." />
+    <meta property="og:title" content="PT Anurika Nusantara Agro | Indonesian Commodity Exporter" />
+    <meta property="og:description" content="Direct Indonesian agricultural commodity exporter. Vanilla beans, coconut charcoal briquettes, specialty green coffee, and Maluku cloves." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/img/hero.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Cabinet+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="/assets/css/custom.css">
+  </head>
+  <body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-emerald-700 selection:text-white">
+
+    <!-- Sticky Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 sm:h-20">
+          <!-- Zone 1: Wordmark -->
+          <a href="/" class="font-display font-bold text-base sm:text-lg lg:text-xl tracking-tight text-slate-900 hover:text-emerald-800 transition-colors" data-i18n="nav.brand">
+            Anurika Nusantara Agro
+          </a>
+
+          <!-- Navigation Links & Actions grouped on right -->
+          <div class="flex items-center gap-4 sm:gap-5">
+            <nav id="desktop-nav" class="hidden md:flex items-center gap-6 lg:gap-7 text-xs lg:text-sm font-medium text-slate-600">
+              <a href="/" class="text-emerald-700 font-semibold py-1 transition-colors hover:text-slate-900" data-i18n="nav.home">Home</a>
+              <a href="/about/" class="hover:text-slate-900 py-1 transition-colors" data-i18n="nav.about">About Us</a>
+              <a href="/products/" class="hover:text-slate-900 py-1 transition-colors" data-i18n="nav.products">Products</a>
+              <a href="/logistics/" class="hover:text-slate-900 py-1 transition-colors" data-i18n="nav.logistics">Logistics</a>
+            </nav>
+            <button id="lang-toggle-btn" class="flex items-center justify-center px-2.5 py-1.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-md border border-slate-200 transition-colors focus:outline-none" title="Switch Language">
+                <span data-i18n="nav.langBtn">ID</span>
+              </button>
+            <button id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center w-10 h-10 text-slate-700 hover:bg-slate-100 rounded-lg focus:outline-none" aria-expanded="false" aria-label="Toggle navigation menu">
+                <svg id="menu-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                <svg id="close-icon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+              </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Panel (for < 768px) -->
+      <div id="mobile-menu" class="hidden md:hidden fixed inset-x-0 top-16 bg-white border-b border-slate-200 shadow-xl max-h-[calc(100vh-4rem)] overflow-y-auto z-50">
+        <div class="px-4 py-6 space-y-4">
+          <nav class="flex flex-col space-y-1">
+            <a href="/" class="px-4 py-3 text-base font-semibold rounded-lg text-emerald-800 bg-emerald-50 transition-colors" data-i18n="nav.home">Home</a>
+            <a href="/about/" class="px-4 py-3 text-base rounded-lg text-slate-700 hover:bg-slate-50 transition-colors" data-i18n="nav.about">About Us</a>
+            <a href="/products/" class="px-4 py-3 text-base rounded-lg text-slate-700 hover:bg-slate-50 transition-colors" data-i18n="nav.products">Products</a>
+            <a href="/logistics/" class="px-4 py-3 text-base rounded-lg text-slate-700 hover:bg-slate-50 transition-colors" data-i18n="nav.logistics">Logistics</a>
+          </nav>
+          
+        </div>
+      </div>
+      <div id="menu-backdrop" class="hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-xs"></div>
+    </header>
+
+    <main>
+      <!-- Hero Section (Clean, Professional, Realistic for SME Exporter) -->
+      <section class="relative bg-slate-900 text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <img src="/assets/img/hero.jpg" alt="Indonesian Commodity Port Terminal" class="w-full h-full object-cover object-center scale-105" loading="eager">
+          <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/85 to-slate-900/70"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 sm:pt-24 sm:pb-28">
+          <div class="max-w-3xl space-y-6 scroll-reveal">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-xs font-semibold text-emerald-300 tracking-wide" data-i18n="hero.badge">
+              Indonesian Agricultural Exporter · Registered SME · NIB 1289000438192
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold font-display tracking-tight text-white leading-[1.15]" data-i18n="hero.title">
+              Direct Indonesian Agricultural Commodities for Global Importers
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal" data-i18n="hero.desc">
+              Ethically sourced vanilla beans, coconut charcoal briquettes, specialty green coffee, and Maluku cloves from smallholder farmer collectives. Rigorous moisture control, authentic legalities, and certified lab analysis per shipment.
+            </p>
+
+            <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
+              <a href="/contact/" class="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-500 rounded-lg shadow-md transition-colors" data-i18n="hero.ctaQuote">
+                Request Official Quotation
+              </a>
+              <a href="/products/" class="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold text-slate-200 bg-slate-800/80 hover:bg-slate-700 rounded-lg border border-slate-700 transition-colors" data-i18n="hero.ctaProducts">
+                Browse Product Specifications
+              </a>
+            </div>
+
+            <!-- Grounded Quantitative Stats Row (Real SME Scale) -->
+            <div class="pt-10 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-slate-800/80">
+              <div>
+                <div class="text-2xl sm:text-3xl font-bold font-display text-white tabular-nums" data-i18n="hero.statCapacity">5 – 15 MT / Month</div>
+                <div class="text-xs text-slate-400 mt-1 font-medium" data-i18n="hero.statCapacityLabel">Aggregated SME Capacity</div>
+              </div>
+              <div>
+                <div class="text-2xl sm:text-3xl font-bold font-display text-white" data-i18n="hero.statLegal">Official NIB</div>
+                <div class="text-xs text-slate-400 mt-1 font-medium" data-i18n="hero.statLegalLabel">Legally Registered Exporter</div>
+              </div>
+              <div>
+                <div class="text-2xl sm:text-3xl font-bold font-display text-emerald-400" data-i18n="hero.statQc">100% Inspected</div>
+                <div class="text-xs text-slate-400 mt-1 font-medium" data-i18n="hero.statQcLabel">Pre-Shipment Quality Testing</div>
+              </div>
+              <div>
+                <div class="text-2xl sm:text-3xl font-bold font-display text-white" data-i18n="hero.statResponse">24h Response</div>
+                <div class="text-xs text-slate-400 mt-1 font-medium" data-i18n="hero.statResponseLabel">Fast Commercial Proforma</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Commodities Section -->
+      <section class="py-16 sm:py-24 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-12 sm:mb-16 scroll-reveal">
+            <div class="text-xs font-bold text-emerald-700 tracking-wider uppercase mb-2" data-i18n="feat.kicker">
+              01. Core Export Commodities
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-bold font-display text-slate-900 tracking-tight" data-i18n="feat.title">
+              Selected Indonesian Commodities with Verified Grades
+            </h2>
+            <p class="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed font-normal" data-i18n="feat.desc">
+              Direct physical parameters, lab tested moisture levels, and container stuffing plans tailored for foreign B2B buyers.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Commodity Card 1: Vanilla -->
+            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col group scroll-reveal delay-100">
+              <div class="relative aspect-4/3 bg-slate-100 overflow-hidden">
+                <img src="/assets/img/vanilla.jpg" alt="Gourmet Planifolia Vanilla Beans" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                <div class="absolute top-3 right-3 px-2.5 py-1 bg-slate-900/85 text-white text-xs font-mono rounded">
+                  HS 0905.10
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+                    <span class="font-semibold text-emerald-800" data-i18n="cat.filterSpices">Spices & Botanicals</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="italic">Vanilla planifolia</span>
+                  </div>
+                  <h3 class="text-lg font-bold font-display text-slate-900 group-hover:text-emerald-800 transition-colors" data-i18n="vanilla.title">
+                    Indonesian Gourmet Planifolia Vanilla Beans
+                  </h3>
+                  <p class="mt-2.5 text-sm text-slate-600 line-clamp-2 leading-relaxed" data-i18n="vanilla.desc">
+                    Sourced directly through our partner smallholder farmer collectives in Alor and Sulawesi. Sun-cured with traditional sweating methods, delivering rich buttery aroma and vanillin content exceeding 2.0%.
+                  </p>
+                  <div class="mt-4 pt-4 border-t border-slate-100 space-y-2 text-xs text-slate-700">
+                    <div class="flex justify-between">
+                      <span class="text-slate-500" data-i18n="detail.lblMoq">MOQ:</span>
+                      <span class="font-medium text-slate-900" data-i18n="vanilla.moq">50 kg Air / 500 kg Sea LCL</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-slate-500" data-i18n="detail.lblCapacity">Monthly Supply:</span>
+                      <span class="font-medium text-slate-900 tabular-nums" data-i18n="vanilla.cap">3.5 – 5.0 MT / Month</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-slate-500" data-i18n="detail.originRegions">Origin:</span>
+                      <span class="font-medium text-slate-900" data-i18n="vanilla.origin">Alor (NTT), Bali & Sulawesi</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
+                  <a href="/products/indonesian-vanilla-beans/" class="flex-1 inline-flex items-center justify-center px-3.5 py-2 text-xs font-semibold text-slate-800 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors" data-i18n="feat.viewSpecs">
+                    View Specifications
+                  </a>
+                  <a href="/contact/?product=Vanilla+Beans" class="inline-flex items-center justify-center px-3.5 py-2 text-xs font-semibold text-white bg-emerald-700 hover:bg-emerald-800 rounded-lg transition-colors" data-i18n="feat.quoteBtn">
+                    Get Quote
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Commodity Card 2: Coconut Charcoal -->
+            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col group scroll-reveal delay-200">
+              <div class="relative aspect-4/3 bg-slate-100 overflow-hidden">
+                <img src="/assets/img/charcoal.jpg" alt="Coconut Charcoal Briquettes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                <div class="absolute top-3 right-3 px-2.5 py-1 bg-slate-900/85 text-white text-xs font-mono rounded">
+                  HS 4402.90
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+                    <span class="font-semibold text-emerald-800" data-i18n="cat.filterCoconut">Coconut & Charcoal</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="italic">Cocos nucifera L.</span>
+                  </div>
+                  <h3 class="text-lg font-bold font-display text-slate-900 group-hover:text-emerald-800 transition-colors" data-i18n="charcoal.title">
+                    Premium Coconut Shell Charcoal Briquettes
+                  </h3>
+                  <p class="mt-2.5 text-sm text-slate-600 line-clamp-2 leading-relaxed" data-i18n="charcoal.desc">
+                    Export-grade coconut charcoal briquettes engineered for Shisha/Hookah and BBQ. 100% natural, fixed carbon >80%, ash under 2.2%, burning time over 2.5 hours.
+                  </p>
+                  <div class="mt-4 pt-4 border-t border-slate-100 space-y-2 text-xs text-slate-700">
+                    <div class="flex justify-between">
+                      <span class="text-slate-500" data-i18n="detail.lblMoq">MOQ:</span>
+                      <span class="font-medium text-slate-900" data-i18n="charcoal.moq">1 x 20ft FCL (18 MT)</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-slate-500" data-i18n="detail.lblCapacity">Monthly Supply:</span>
+                      <span class="font-medium text-slate-900 tabular-nums" data-i18n="charcoal.cap">100 – 150 MT / Month</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-slate-500" data-i18n="detail.originRegions">Origin:</span>
+                      <span class="font-medium text-slate-900" data-i18n="charcoal.origin">East Java Processing Hubs</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
+                  <a href="/products/coconut-shell-briquette-charcoal/" class="flex-1 inline-flex items-center justify-center px-3.5 py-2 text-xs font-semibold text-slate-800 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors" data-i18n="feat.viewSpecs">
+                    View Specifications
+                  </a>
+                  <a href="/contact/?product=Coconut+Charcoal" class="inline-flex items-center justify-center px-3.5 py-2 text-xs font-semibold text-white bg-emerald-700 hover:bg-emerald-800 rounded-lg transition-colors" data-i18n="feat.quoteBtn">
+                    Get Quote
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Commodity Card 3: Green Coffee -->
+            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col group scroll-reveal delay-300">
+              <div class="relative aspect-4/3 bg-slate-100 overflow-hidden">
+                <img src="/assets/img/coffee.jpg" alt="Indonesian Green Coffee Beans" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                <div class="absolute top-3 right-3 px-2.5 py-1 bg-slate-900/85 text-white text-xs font-mono rounded">
+                  HS 0901.11
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+                    <span class="font-semibold text-emerald-800" data-i18n="cat.filterCoffee">Coffee & Cocoa</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="italic">Coffea arabica</span>
+                  </div>
+                  <h3 class="text-lg font-bold font-display text-slate-900 group-hover:text-emerald-800 transition-colors" data-i18n="coffee.title">
+                    Indonesian Specialty Green Coffee Beans
+                  </h3>
+                  <p class="mt-2.5 text-sm text-slate-600 line-clamp-2 leading-relaxed" data-i18n="coffee.desc">
+                    Sumatra Mandheling Arabica and Java Dampit Robusta. Grade 1 double-picked, screen 18/19, moisture 11-12%, SCAA cupping score 84+.
+                  </p>
+                  <div class="mt-4 pt-4 border-t border-slate-100 space-y-2 text-xs text-slate-700">
+                    <div class="flex justify-between">
+                      <span class="text-slate-500" data-i18n="detail.lblMoq">MOQ:</span>
+                      <span class="font-medium text-slate-900" data-i18n="coffee.moq">1 x 20ft FCL (19.2 MT)</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-slate-500" data-i18n="detail.lblCapacity">Monthly Supply:</span>
+                      <span class="font-medium text-slate-900 tabular-nums" data-i18n="coffee.cap">60 – 90 MT / Month</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-slate-500" data-i18n="detail.originRegions">Origin:</span>
+                      <span class="font-medium text-slate-900" data-i18n="coffee.origin">Sumatra & East Java</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
+                  <a href="/products/indonesian-green-coffee-beans/" class="flex-1 inline-flex items-center justify-center px-3.5 py-2 text-xs font-semibold text-slate-800 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors" data-i18n="feat.viewSpecs">
+                    View Specifications
+                  </a>
+                  <a href="/contact/?product=Green+Coffee" class="inline-flex items-center justify-center px-3.5 py-2 text-xs font-semibold text-white bg-emerald-700 hover:bg-emerald-800 rounded-lg transition-colors" data-i18n="feat.quoteBtn">
+                    Get Quote
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12 text-center scroll-reveal">
+            <a href="/products/" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-slate-800 bg-white border border-slate-300 hover:bg-slate-50 rounded-lg shadow-xs transition-colors" data-i18n="feat.viewAll">
+              View All Export Commodities with Grade Tables
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6-Step Export Workflow Section -->
+      <section class="py-16 sm:py-24 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-12 sm:mb-16 scroll-reveal">
+            <div class="text-xs font-bold text-emerald-700 tracking-wider uppercase mb-2" data-i18n="flow.kicker">
+              02. Seamless Export Flow
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-bold font-display text-slate-900 tracking-tight" data-i18n="flow.title">
+              From Farm Gate to Destination Port in 6 Clear Steps
+            </h2>
+            <p class="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed font-normal" data-i18n="flow.desc">
+              Transparent, contract-backed milestones ensuring zero surprises on quality, lead times, or documentation.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50 scroll-reveal delay-100">
+              <div class="font-mono text-sm font-bold text-emerald-800 mb-2">01</div>
+              <h3 class="text-base font-bold font-display text-slate-900 mb-2" data-i18n="flow.step1Title">1. Inquiry & Spec Matching</h3>
+              <p class="text-sm text-slate-600 leading-relaxed" data-i18n="flow.step1Desc">Submit your target grade, volume, packaging, and Incoterm. We issue a formal commercial Proforma Quote within 24h.</p>
+            </div>
+            <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50 scroll-reveal delay-200">
+              <div class="font-mono text-sm font-bold text-emerald-800 mb-2">02</div>
+              <h3 class="text-base font-bold font-display text-slate-900 mb-2" data-i18n="flow.step2Title">2. Sample Dispatch via Courier</h3>
+              <p class="text-sm text-slate-600 leading-relaxed" data-i18n="flow.step2Desc">Representative samples sent via DHL/FedEx with verified lot analysis for your laboratory evaluation.</p>
+            </div>
+            <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50 scroll-reveal delay-300">
+              <div class="font-mono text-sm font-bold text-emerald-800 mb-2">03</div>
+              <h3 class="text-base font-bold font-display text-slate-900 mb-2" data-i18n="flow.step3Title">3. Sales Contract & LC / Deposit</h3>
+              <p class="text-sm text-slate-600 leading-relaxed" data-i18n="flow.step3Desc">Binding Sales Contract signed detailing moisture, purity, delivery schedule, and agreed payment terms.</p>
+            </div>
+            <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50 scroll-reveal delay-100">
+              <div class="font-mono text-sm font-bold text-emerald-800 mb-2">04</div>
+              <h3 class="text-base font-bold font-display text-slate-900 mb-2" data-i18n="flow.step4Title">4. Processing, Sorting & QC</h3>
+              <p class="text-sm text-slate-600 leading-relaxed" data-i18n="flow.step4Desc">Direct sorting and final moisture testing in our facility. Pre-shipment batch analysis report generated.</p>
+            </div>
+            <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50 scroll-reveal delay-200">
+              <div class="font-mono text-sm font-bold text-emerald-800 mb-2">05</div>
+              <h3 class="text-base font-bold font-display text-slate-900 mb-2" data-i18n="flow.step5Title">5. Quarantine & Stuffing</h3>
+              <p class="text-sm text-slate-600 leading-relaxed" data-i18n="flow.step5Desc">Official Indonesian Agricultural Quarantine inspection, phytosanitary certificate, and supervised stuffing.</p>
+            </div>
+            <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50 scroll-reveal delay-300">
+              <div class="font-mono text-sm font-bold text-emerald-800 mb-2">06</div>
+              <h3 class="text-base font-bold font-display text-slate-900 mb-2" data-i18n="flow.step6Title">6. Shipping & Document Delivery</h3>
+              <p class="text-sm text-slate-600 leading-relaxed" data-i18n="flow.step6Desc">Original Bill of Lading, Certificate of Origin (COO), Phytosanitary, and Lab COA released digitally and via courier.</p>
+            </div>
+          </div>
+
+          <div class="mt-12 p-6 rounded-xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6 scroll-reveal">
+            <div>
+              <div class="text-base font-bold font-display" data-i18n="flow.ctaTitle">Ready to initiate your commodity sourcing inquiry?</div>
+              <div class="text-xs text-slate-400 mt-1" data-i18n="flow.ctaDesc">Get a detailed Proforma quotation with specification certificate and logistics lead time within 24h.</div>
+            </div>
+            <a href="/contact/" class="px-5 py-2.5 text-xs sm:text-sm font-semibold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg whitespace-nowrap transition-colors" data-i18n="flow.ctaBtn">
+              Initiate Inquiry Step 1
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 border-t border-slate-800 text-xs">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+          <div class="lg:col-span-2 space-y-4">
+            <div class="font-display font-bold text-lg text-white" data-i18n="nav.brand">PT Anurika Nusantara Agro</div>
+            <p class="text-slate-400 leading-relaxed text-xs pr-4" data-i18n="footer.desc">
+              PT Anurika Nusantara Agro is a registered Indonesian commodity exporter committed to supply chain transparency, quality testing, and dependable fulfillment.
+            </p>
+            <div class="pt-2 flex flex-wrap gap-2 text-[11px]">
+              <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-slate-300">
+                NIB: 1289000438192 (OSS RI)
+              </span>
+              <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-slate-300">
+                KBLI: 46312 (Perdagangan Ekspor Pertanian)
+              </span>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="font-bold text-white uppercase tracking-wider text-[11px]" data-i18n="footer.quick">Quick Navigation</div>
+            <ul class="space-y-2">
+              <li><a href="/" class="hover:text-white transition-colors" data-i18n="nav.home">Home</a></li>
+              <li><a href="/about/" class="hover:text-white transition-colors" data-i18n="nav.about">About Us</a></li>
+              <li><a href="/products/" class="hover:text-white transition-colors" data-i18n="nav.products">Products</a></li>
+              <li><a href="/logistics/" class="hover:text-white transition-colors" data-i18n="nav.logistics">Logistics</a></li>
+              <li><a href="/contact/" class="hover:text-white transition-colors" data-i18n="nav.quoteBtn">Request a Quote</a></li>
+            </ul>
+          </div>
+
+          <div class="space-y-3">
+            <div class="font-bold text-white uppercase tracking-wider text-[11px]" data-i18n="footer.commodities">Export Commodities</div>
+            <ul class="space-y-2">
+              <li><a href="/products/indonesian-vanilla-beans/" class="hover:text-white transition-colors" data-i18n="vanilla.title">Indonesian Gourmet Planifolia Vanilla Beans</a></li>
+              <li><a href="/products/coconut-shell-briquette-charcoal/" class="hover:text-white transition-colors" data-i18n="charcoal.title">Premium Coconut Shell Charcoal Briquettes</a></li>
+              <li><a href="/products/indonesian-green-coffee-beans/" class="hover:text-white transition-colors" data-i18n="coffee.title">Indonesian Specialty Green Coffee Beans</a></li>
+              <li><a href="/products/indonesian-whole-cloves/" class="hover:text-white transition-colors" data-i18n="cloves.title">Indonesian Lalpari Grade Whole Cloves</a></li>
+            </ul>
+          </div>
+
+          <div class="space-y-3">
+            <div class="font-bold text-white uppercase tracking-wider text-[11px]" data-i18n="footer.contact">Export Desk</div>
+            <div class="space-y-2 text-xs">
+              <div>Email: <a href="mailto:export@anurikanusantara.com" class="hover:text-white">export@anurikanusantara.com</a></div>
+              <div>WhatsApp: <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="hover:text-white">+62 812 3456 7890</a></div>
+              <div class="text-slate-500 pt-1">Surabaya & East Java, Indonesia</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 text-xs" data-i18n="footer.securityNotice">
+          Security Advisory: PT Anurika Nusantara Agro only conducts transactions via our verified corporate domain (@anurikanusantara.com) and corporate bank accounts under PT ANURIKA NUSANTARA AGRO.
+        </div>
+
+        <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500">
+          <div data-i18n="footer.copy">© <span id="copyright-year">2026</span> PT Anurika Nusantara Agro. All rights reserved. NIB 1289000438192.</div>
+          <div class="flex items-center gap-4">
+            <a href="/privacy/" class="hover:text-slate-300 transition-colors" data-i18n="footer.privacy">Privacy Policy</a>
+            <span>·</span>
+            <a href="/logistics/" class="hover:text-slate-300 transition-colors" data-i18n="footer.terms">Terms of Trade</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp Widget -->
+    <div id="floating-wa-container" class="fixed bottom-6 right-6 z-40">
+      <button id="floating-wa-btn" class="flex items-center gap-2 p-3.5 sm:px-4 sm:py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full shadow-lg hover:shadow-xl transition-all focus:outline-none" aria-label="Chat via WhatsApp">
+        <span class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+        </span>
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+        <span class="hidden sm:inline font-semibold text-xs whitespace-nowrap" data-i18n="footer.waWidget">WhatsApp Export Desk</span>
+      </button>
+    </div>
+
+    <!-- Native JavaScripts -->
+    <script src="/assets/js/config.js"></script>
+    <script src="/assets/js/i18n.js"></script>
+    <script src="/assets/js/navbar.js"></script>
+    <script src="/assets/js/whatsapp.js"></script>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>
