@@ -8,38 +8,59 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Cabinet+Grotesk:wght@700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="/assets/js/tailwind-config.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+              display: ['"Cabinet Grotesk"', '"Plus Jakarta Sans"', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <!-- This page is intentionally self-contained (no local assets): GitHub Pages
+         can serve it from ANY unknown path, so relative asset URLs would break. -->
+    <script>
+      (function () {
+        var base = '/';
+        if (/(^|\.)github\.io$/i.test(location.hostname)) {
+          var first = location.pathname.split('/').filter(Boolean)[0];
+          base = first ? '/' + first + '/' : '/';
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+          document.querySelectorAll('[data-site-root]').forEach(function (el) {
+            el.setAttribute('href', base + (el.getAttribute('data-site-root') || ''));
+          });
+        });
+      })();
+    </script>
   </head>
   <body class="bg-slate-50 text-slate-900 font-sans antialiased flex flex-col min-h-screen justify-between">
     <header class="p-6 border-b border-slate-200 bg-white">
       <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <a href="/" class="font-display font-bold text-lg text-slate-900" data-i18n="nav.brand">Anurika Nusantara Agro</a>
-        <div class="flex items-center gap-3">
-          <a href="/" class="text-xs font-semibold text-emerald-700" data-i18n="err.homeLink">Home →</a>
-          <button id="lang-toggle-btn" class="px-2.5 py-1.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-md border border-slate-200 transition-colors focus:outline-none" title="Switch Language"><span data-i18n="nav.langBtn">ID</span></button>
-        </div>
+        <a href="/" data-site-root="" class="font-display font-bold text-lg text-slate-900">Anurika Nusantara Agro</a>
+        <a href="/" data-site-root="" class="text-xs font-semibold text-emerald-700 hover:text-emerald-900">Home →</a>
       </div>
     </header>
 
     <main class="flex-1 flex items-center justify-center p-6 text-center">
       <div class="max-w-md space-y-4">
         <div class="text-6xl font-bold font-display text-emerald-800">404</div>
-        <h1 class="text-2xl font-bold text-slate-900 font-display" data-i18n="err.title">Page Not Found</h1>
-        <p class="text-slate-600 text-sm" data-i18n="err.desc">
+        <h1 class="text-2xl font-bold text-slate-900 font-display">Page Not Found</h1>
+        <p class="text-slate-600 text-sm">
           The requested page could not be located. You can navigate back to our homepage or view our commodity catalog.
         </p>
         <div class="pt-2 flex justify-center gap-3">
-          <a href="/" class="px-5 py-2.5 bg-emerald-700 text-white rounded-lg text-xs font-semibold hover:bg-emerald-800" data-i18n="err.returnHome">Return to Home</a>
-          <a href="/products/" class="px-5 py-2.5 bg-white border border-slate-300 text-slate-700 rounded-lg text-xs font-semibold hover:bg-slate-50" data-i18n="err.browse">Browse Commodities</a>
+          <a href="/" data-site-root="" class="px-5 py-2.5 bg-emerald-700 text-white rounded-lg text-xs font-semibold hover:bg-emerald-800">Return to Home</a>
+          <a href="/products/" data-site-root="products/" class="px-5 py-2.5 bg-white border border-slate-300 text-slate-700 rounded-lg text-xs font-semibold hover:bg-slate-50">Browse Commodities</a>
         </div>
       </div>
     </main>
 
     <footer class="p-6 border-t border-slate-200 bg-white text-center text-xs text-slate-500">
-      <span data-i18n="err.footer">© 2026 PT Anurika Nusantara Agro · NIB 1289000438192</span>
+      <span>© 2026 PT Anurika Nusantara Agro · NIB 1289000438192</span>
     </footer>
-    <script src="/assets/js/config.js"></script>
-    <script src="/assets/js/i18n.js"></script>
-    <script src="/assets/js/navbar.js"></script>
   </body>
 </html>

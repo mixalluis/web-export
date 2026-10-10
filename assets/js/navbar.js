@@ -80,15 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Highlight active link based on current path
-  const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
-  document.querySelectorAll('nav a, #mobile-menu a').forEach(link => {
-    const href = link.getAttribute('href');
-    if (!href) return;
-    const cleanHref = href.split('?')[0].replace(/\/+$/, '') || '/';
-    if (cleanHref === currentPath || (cleanHref !== '/' && currentPath.startsWith(cleanHref))) {
-      link.classList.add('text-emerald-700', 'font-semibold');
-      link.classList.remove('text-slate-600');
-    }
-  });
+  // NOTE: the "active" nav item is already marked up statically on every page
+  // (hrefs are relative now, so path matching against window.location is
+  // fragile and would highlight the wrong item). No JS highlighting needed.
 });

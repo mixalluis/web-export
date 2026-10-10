@@ -1060,19 +1060,21 @@ function applyLanguage(lang) {
     toggleBtn.setAttribute('title', lang === 'en' ? 'Ganti ke Bahasa Indonesia' : 'Switch to English');
   }
 
-  // Update internal anchor links to carry ?lang=id if id, or clean if en
+  // Update internal anchor links to carry ?lang=id when needed.
+  // Paths are kept RELATIVE on purpose so the site keeps working when hosted
+  // inside a sub-path (e.g. a GitHub Pages project site at /web-export/).
   document.querySelectorAll('a[href]').forEach(a => {
     const href = a.getAttribute('href');
     if (!href || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('#') || href.startsWith('javascript:')) return;
     try {
-      const u = new URL(href, window.location.origin);
+      const pathPart = href.split(/[?#]/)[0];
+      const u = new URL(href, window.location.href);
       if (lang === 'id') {
         u.searchParams.set('lang', 'id');
       } else {
         u.searchParams.delete('lang');
       }
-      const search = u.search;
-      a.setAttribute('href', u.pathname + search + u.hash);
+      a.setAttribute('href', pathPart + u.search + u.hash);
     } catch (e) {}
   });
 

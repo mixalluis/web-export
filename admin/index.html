@@ -13,9 +13,9 @@
 
     <!-- Tailwind CSS via CDN (sama seperti situs publik) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="/assets/js/tailwind-config.js"></script>
-    <link rel="stylesheet" href="/assets/css/custom.css">
-    <link rel="stylesheet" href="/admin/assets/admin.css">
+    <script src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="../admin/assets/admin.css">
   </head>
   <body class="bg-slate-100 text-slate-900 font-sans antialiased">
 
@@ -35,7 +35,7 @@
             <button type="button" id="btn-download" class="admin-btn admin-btn-primary">Unduh site-data.json</button>
             <button type="button" id="btn-import" class="admin-btn">Impor JSON</button>
             <button type="button" id="btn-reset" class="admin-btn admin-btn-danger">Reset</button>
-            <a href="/" target="_blank" rel="noopener" class="admin-btn">Buka situs ↗</a>
+            <a href="../" target="_blank" rel="noopener" class="admin-btn">Buka situs ↗</a>
             <input type="file" id="file-import" accept="application/json,.json" class="hidden" />
           </div>
         </div>
@@ -70,7 +70,7 @@
     <div id="toast" class="hidden fixed bottom-6 right-6 z-50 px-4 py-3 rounded-xl shadow-lg text-sm font-medium"></div>
 
     <!-- Kamus i18n situs dibaca dari sumber yang sama dengan situs publik -->
-    <script src="/assets/js/i18n.js"></script>
-    <script src="/admin/assets/admin.js"></script>
+    <script src="../assets/js/i18n.js"></script>
+    <script src="../admin/assets/admin.js"></script>
   </body>
 </html>
